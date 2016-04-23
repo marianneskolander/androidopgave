@@ -2,7 +2,7 @@
     <string name="app_name">Huskeliste</string>
     <string name="action_settings">Settings</string>
     <string name="skrivher">Skriv her</string>
-    <string-array name="str2">
+    <string-array name="howmanyarray">
         <item>1</item>
         <item>2</item>
         <item>3</item>

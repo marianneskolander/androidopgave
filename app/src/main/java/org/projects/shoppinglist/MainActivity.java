@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    private String[] items = { " ttt 0", "ttt 1", "ttt 2", "tt 3", "ttt 4",
-            "ttt 5", "ttt 6", "ttt 7" };
 
     public ArrayAdapter getMyAdapter() {
         return adapter;
@@ -70,19 +68,19 @@ public class MainActivity extends AppCompatActivity {
         //----------------spinner------------------------------------------------------------------
 
 
-        final Spinner sp3= (Spinner) findViewById(R.id.spinner3);
+        final Spinner howmanyspinner= (Spinner) findViewById(R.id.howmanyspinner);
         ArrayAdapter<CharSequence> adp3=ArrayAdapter.createFromResource(this,
-                R.array.str2, android.R.layout.simple_list_item_1);
+                R.array.howmanyarray, android.R.layout.simple_list_item_1);
 
         adp3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp3.setAdapter(adp3);
-        sp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        howmanyspinner.setAdapter(adp3);
+        howmanyspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
                 // TODO Auto-generated method stub
-                String ss=sp3.getSelectedItem().toString();
+                String ss=howmanyspinner.getSelectedItem().toString();
                 Toast.makeText(getBaseContext(),ss , Toast.LENGTH_SHORT).show();
 
             }
@@ -105,49 +103,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText itemTxt = (EditText) findViewById(R.id.itemInput);
-                //EditText numberTxt = (EditText) findViewById(R.id.numberInput);
-                String ss=sp3.getSelectedItem().toString();
-
-                Integer howMany = Integer.parseInt(ss.toString());
-
+                String ss=howmanyspinner.getSelectedItem().toString();
+                Integer howMany = Integer.parseInt(ss);
                 bag.add(new Product(itemTxt.getText().toString(), howMany));
-                //bag.add(new Product(itemTxt.getText().toString(), ss));
+                //fjerner tekst og giver 1 til antal
                 itemTxt.setText("");
-                //numberTxt.setText("1");//
+                howmanyspinner.setSelection(0);
                 getMyAdapter().notifyDataSetChanged();
-
             }
         });
 
-/*//--------------------Dialog til delete knap------------------------
-    public void showDialog(View v) {
-        //showing our dialog.
-        MyDialogFragment dialog = new MyDialogFragment() {
-            @Override
-            protected void positiveClick() {
-                //Here we override the methods and can now
-                //do something
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "positive button clicked", Toast.LENGTH_LONG);
-                toast.show();
-            }
-
-            @Override
-            protected void negativeClick() {
-                //Here we override the method and can now do something
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "negative button clicked", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        };
-
-        //Here we show the dialog
-        //The tag "MyFragement" is not important for us.
-        dialog.show(getFragmentManager(), "MyFragment");
-    }*/
-
 
 //--------------------------------deletebutton--------------------------
+//
 
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -159,26 +127,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-/*
-//---------------------------------Clearbutton---------------------------------
-
-        Button clearButton = (Button) findViewById(R.id.clearButton);
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bag.clear();
-                //int selected = ;
-                getMyAdapter().notifyDataSetChanged();
-            }
-        });
-*/
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-//------------------------------dialog test----------------------------------------------
+//------------------------------Clearbutton - Dialog----------------------------------------------
+//action via XML android:onClick="showDialog"
 public void showDialog(View v) {
     //showing our dialog.
     MyDialogFragment dialog = new MyDialogFragment() {
