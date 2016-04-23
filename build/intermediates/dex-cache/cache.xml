@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_6af97d431d3e44c3bc7c659aa9544831d4f98cdc.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_ea24b0f326bdc5bb6c7d85b0f46b26816aea969d.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_a41cae3b3dd378d38cf681651505a5f0f75b4f74.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_51a13c409f710505a952ede77e5e5cec4e7e3082.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_2f4c4c02bd9ca267a29be627f2f580cc3ae2b025.jar" />
+    </item>
+    <item
+        jar="D:\androidsdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_ce4883f618050d15f2860d94f7150304c5a75bfa.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_1f43506b5a21a5d4ff175927db2929b0fa8b700e.jar" />
+    </item>
+    <item
+        jar="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="D:\ShoppingList-master\ShoppingList-master\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_761696dffd5f43953ec5795848f4e2f1226d9044.jar" />
+    </item>
+
+</items>

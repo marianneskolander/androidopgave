@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    }
+]
