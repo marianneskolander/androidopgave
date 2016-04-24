@@ -2284,7 +2284,7 @@ containing a value of this type.
         public static final int customPanel=0x7f0d0051;
         public static final int decor_content_parent=0x7f0d005a;
         public static final int default_activity_button=0x7f0d0042;
-        public static final int deleteButton=0x7f0d0070;
+        public static final int deleteButton=0x7f0d0071;
         public static final int design_menu_item_action_area=0x7f0d0078;
         public static final int design_menu_item_action_area_stub=0x7f0d0077;
         public static final int design_menu_item_text=0x7f0d0076;
@@ -2317,7 +2317,7 @@ containing a value of this type.
         public static final int left=0x7f0d0022;
         public static final int line1=0x7f0d007e;
         public static final int line3=0x7f0d0082;
-        public static final int list=0x7f0d0071;
+        public static final int list=0x7f0d0070;
         public static final int listMode=0x7f0d000b;
         public static final int list_item=0x7f0d0043;
         public static final int media_actions=0x7f0d007c;

@@ -13,10 +13,10 @@ public class MyDialogFragment extends DialogFragment {
         //Here we create a new dialogbuilder;
         AlertDialog.Builder alert = new AlertDialog.Builder(
                 getActivity());
-        alert.setTitle("Confirmation");
-        alert.setMessage("Are you sure?");
-        alert.setPositiveButton("Yes", pListener);
-        alert.setNegativeButton("No", nListener);
+        alert.setTitle("Bekræft sletning");
+        alert.setMessage("Slet hele listen?");
+        alert.setPositiveButton("Ja", pListener);
+        alert.setNegativeButton("Nej", nListener);
 
         return alert.create();
     }

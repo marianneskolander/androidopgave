@@ -611,7 +611,7 @@ int id custom 0x7f0d0052
 int id customPanel 0x7f0d0051
 int id decor_content_parent 0x7f0d005a
 int id default_activity_button 0x7f0d0042
-int id deleteButton 0x7f0d0070
+int id deleteButton 0x7f0d0071
 int id design_menu_item_action_area 0x7f0d0078
 int id design_menu_item_action_area_stub 0x7f0d0077
 int id design_menu_item_text 0x7f0d0076
@@ -644,7 +644,7 @@ int id layout 0x7f0d006c
 int id left 0x7f0d0022
 int id line1 0x7f0d007e
 int id line3 0x7f0d0082
-int id list 0x7f0d0071
+int id list 0x7f0d0070
 int id listMode 0x7f0d000b
 int id list_item 0x7f0d0043
 int id media_actions 0x7f0d007c

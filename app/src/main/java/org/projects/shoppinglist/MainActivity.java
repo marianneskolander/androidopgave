@@ -114,9 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 String ss=howmanyspinner.getSelectedItem().toString();
                 Integer howMany = Integer.parseInt(ss);
                 bag.add(new Product(itemTxt.getText().toString(), howMany));
-                //fjerner tekst og giver 1 til antal
-                itemTxt.setText("");
-                howmanyspinner.setSelection(0);
+                itemTxt.setText("");//fjerner tekst
+                howmanyspinner.setSelection(0);//antal sættes til 1
                 getMyAdapter().notifyDataSetChanged();
             }
         });
@@ -141,17 +140,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                //This code will ONLY be executed in case that
-                                //the user has hit the UNDO button
-                                //TextView textView = (TextView) findViewById(R.id.lastEntered);
-                                //currentName = new String(backup); //get backup
-                                //textView.setText(currentName);
                                 bag.add(lastDeletedPosition,lastDeletedProduct);
                                 getMyAdapter().notifyDataSetChanged();
                                 Snackbar snackbar = Snackbar.make(parent, lastDeletedProduct+" på listen igen!", Snackbar.LENGTH_SHORT);
-
-                                //Show the user we have restored the name - but here
-                                //on this snackbar there is NO UNDO - so not SetAction method is called
                                 snackbar.show();
                             }
                         });
@@ -168,18 +159,13 @@ public class MainActivity extends AppCompatActivity {
 
 //------------------------------Clearbutton - Dialog----------------------------------------------
 //action via XML android:onClick="showDialog"
-public void showDialog(View v) {
+//public void showDialog(View v) {
+/*public void showDialog(MenuItem item) {
     //showing our dialog.
     MyDialogFragment dialog = new MyDialogFragment() {
         @Override
         protected void positiveClick() {
-            //Here we override the methods and can now
-            //do something
-            //Toast toast = Toast.makeText(getApplicationContext(),
-             //       "positive button clicked", Toast.LENGTH_LONG);
-            //toast.show();
             bag.clear();
-            //int selected = ;
             getMyAdapter().notifyDataSetChanged();
         }
 
@@ -191,13 +177,10 @@ public void showDialog(View v) {
             //toast.show();
         }
     };
-
-    //Here we show the dialog
-    //The tag "MyFragement" is not important for us.
-    dialog.show(getFragmentManager(), "MyFragment");
+    dialog.show(getFragmentManager(), "MyFragment");//Here we show the dialog
 }
-
-//-------------------------------------------------------------------------------------------
+*/
+//---------------------------------Menu----------------------------------------------------------
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -215,23 +198,19 @@ public void showDialog(View v) {
                         Toast.LENGTH_SHORT).show();
                 return true; //return true, means we have handled the event
             case R.id.item_about:
-                Toast.makeText(this, "Opgave Android Studio, Marianne Skolander", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Opgave Android Studio, \nMarianne Skolander", Toast.LENGTH_SHORT)
                         .show();
                 return true;
 
             case R.id.item_clear:
+
                 //public void showDialog(View v) {
                 //showing our dialog.
+
                 MyDialogFragment dialog = new MyDialogFragment() {
                     @Override
                     protected void positiveClick() {
-                        //Here we override the methods and can now
-                        //do something
-                        //Toast toast = Toast.makeText(getApplicationContext(),
-                        //       "positive button clicked", Toast.LENGTH_LONG);
-                        //toast.show();
                         bag.clear();
-                        //int selected = ;
                         getMyAdapter().notifyDataSetChanged();
                     }
 
@@ -245,8 +224,7 @@ public void showDialog(View v) {
                 };
 
                 //Here we show the dialog
-                //The tag "MyFragement" is not important for us.
-                dialog.show(getFragmentManager(), "MyFragment");
+               dialog.show(getFragmentManager(), "MyFragment");
                 //Toast.makeText(this, "Opgave Android Studio, Marianne Skolander", Toast.LENGTH_SHORT)
                         //.show();
                 return true;
