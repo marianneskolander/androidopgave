@@ -2310,6 +2310,8 @@ containing a value of this type.
         public static final int image=0x7f0d0041;
         public static final int info=0x7f0d0084;
         public static final int itemInput=0x7f0d006d;
+        public static final int item_about=0x7f0d0087;
+        public static final int item_clear=0x7f0d0088;
         public static final int item_touch_helper_previous_elevation=0x7f0d0005;
         public static final int layout=0x7f0d006c;
         public static final int left=0x7f0d0022;

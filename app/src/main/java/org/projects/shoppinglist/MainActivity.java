@@ -206,7 +206,59 @@ public void showDialog(View v) {
         return true;
     }
 
-    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                Toast.makeText(this, "Application icon clicked!",
+                        Toast.LENGTH_SHORT).show();
+                return true; //return true, means we have handled the event
+            case R.id.item_about:
+                Toast.makeText(this, "Opgave Android Studio, Marianne Skolander", Toast.LENGTH_SHORT)
+                        .show();
+                return true;
+
+            case R.id.item_clear:
+                //public void showDialog(View v) {
+                //showing our dialog.
+                MyDialogFragment dialog = new MyDialogFragment() {
+                    @Override
+                    protected void positiveClick() {
+                        //Here we override the methods and can now
+                        //do something
+                        //Toast toast = Toast.makeText(getApplicationContext(),
+                        //       "positive button clicked", Toast.LENGTH_LONG);
+                        //toast.show();
+                        bag.clear();
+                        //int selected = ;
+                        getMyAdapter().notifyDataSetChanged();
+                    }
+
+                    @Override
+                    protected void negativeClick() {
+                        //Here we override the method and can now do something
+                        //oast toast = Toast.makeText(getApplicationContext(),
+                        // "negative button clicked", Toast.LENGTH_SHORT);
+                        //toast.show();
+                    }
+                };
+
+                //Here we show the dialog
+                //The tag "MyFragement" is not important for us.
+                dialog.show(getFragmentManager(), "MyFragment");
+                //Toast.makeText(this, "Opgave Android Studio, Marianne Skolander", Toast.LENGTH_SHORT)
+                        //.show();
+                return true;
+
+            //dialog.show(getFragmentManager(), "MyFragment");
+
+        }
+
+        return false; //we did not handle the event
+    }
+//oprindelig
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -219,7 +271,7 @@ public void showDialog(View v) {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     /*----------------tilføjet-------------------------*/
     @Override
