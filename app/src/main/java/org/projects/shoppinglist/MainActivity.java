@@ -2,6 +2,7 @@ package org.projects.shoppinglist;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<Product> adapter;
     ListView listView;
     ArrayList<Product> bag = new ArrayList<Product>();
+    Product lastDeletedProduct;
+    int lastDeletedPosition;
+    public void saveCopy()
+    {
+        lastDeletedPosition = listView.getCheckedItemPosition();
+        lastDeletedProduct = bag.get(lastDeletedPosition);
+    }
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -74,14 +83,13 @@ public class MainActivity extends AppCompatActivity {
 
         adp3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         howmanyspinner.setAdapter(adp3);
-        howmanyspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        howmanyspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
                 // TODO Auto-generated method stub
-                String ss=howmanyspinner.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(),ss , Toast.LENGTH_SHORT).show();
+                String ss = howmanyspinner.getSelectedItem().toString();
+                Toast.makeText(getBaseContext(), ss, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -118,12 +126,37 @@ public class MainActivity extends AppCompatActivity {
 //
 
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
+        final View parent = findViewById(R.id.layout);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selected = listView.getCheckedItemPosition();
-                bag.remove(selected);
-                getMyAdapter().notifyDataSetChanged();
+                //int selected = listView.getCheckedItemPosition();
+                //bag.remove(selected);
+                saveCopy(); //save a copy of the deleted item
+                bag.remove(lastDeletedPosition); //remove item
+                getMyAdapter().notifyDataSetChanged(); //notify view
+
+                Snackbar snackbar = Snackbar
+                        .make(parent, "Vil du slette "+lastDeletedProduct+"?", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //This code will ONLY be executed in case that
+                                //the user has hit the UNDO button
+                                //TextView textView = (TextView) findViewById(R.id.lastEntered);
+                                //currentName = new String(backup); //get backup
+                                //textView.setText(currentName);
+                                bag.add(lastDeletedPosition,lastDeletedProduct);
+                                getMyAdapter().notifyDataSetChanged();
+                                Snackbar snackbar = Snackbar.make(parent, lastDeletedProduct+" på listen igen!", Snackbar.LENGTH_SHORT);
+
+                                //Show the user we have restored the name - but here
+                                //on this snackbar there is NO UNDO - so not SetAction method is called
+                                snackbar.show();
+                            }
+                        });
+
+                snackbar.show();
             }
         });
 
