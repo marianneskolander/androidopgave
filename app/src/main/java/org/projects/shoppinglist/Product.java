@@ -1,5 +1,5 @@
 package org.projects.shoppinglist;
-
+//der skal tilføjes emty constructor get and set for quantiti and name
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -56,4 +56,31 @@ public class Product implements Parcelable {
         }
 
     };
+    public Product()
+    {
+
+    }
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+
+        this.name =name;
+    }
+    //
+    public int getQuantity()
+    {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity)
+    {
+
+        this.quantity =quantity;
+    }
+
+
 }

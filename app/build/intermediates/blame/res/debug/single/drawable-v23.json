@@ -1,14 +1,6 @@
 [
     {
-        "merged": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
-        "merged": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
-        "merged": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v23\\abc_control_background_material.xml"
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-v23\\abc_control_background_material.xml"
     }
 ]

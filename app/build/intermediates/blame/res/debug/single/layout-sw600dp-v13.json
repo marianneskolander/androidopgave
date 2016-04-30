@@ -1,14 +1,6 @@
 [
     {
-        "merged": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
-        "source": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout-sw600dp\\design_layout_snackbar.xml"
-    },
-    {
-        "merged": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
-        "source": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout-sw600dp\\design_layout_snackbar.xml"
-    },
-    {
-        "merged": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
-        "source": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout-sw600dp\\design_layout_snackbar.xml"
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout-sw600dp\\design_layout_snackbar.xml"
     }
 ]

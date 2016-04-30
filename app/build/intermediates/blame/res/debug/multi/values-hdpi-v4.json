@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "outputFile": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,66 +12,14 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-hdpi\\values-hdpi.xml",
+                    "file": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 235,
-                        "endLine": 8,
+                        "startOffset": 55,
+                        "endLine": 6,
                         "endColumn": 13,
-                        "endOffset": 507
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 6,
-                    "endColumn": 13,
-                    "endOffset": 327
-                },
-                "from": {
-                    "file": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-hdpi\\values-hdpi.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 235,
-                        "endLine": 8,
-                        "endColumn": 13,
-                        "endOffset": 507
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 6,
-                    "endColumn": 13,
-                    "endOffset": 327
-                },
-                "from": {
-                    "file": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-hdpi\\values-hdpi.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 235,
-                        "endLine": 8,
-                        "endColumn": 13,
-                        "endOffset": 507
+                        "endOffset": 327
                     }
                 }
             }

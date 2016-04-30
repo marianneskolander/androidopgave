@@ -21,6 +21,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.ValueEventListener;
+import com.firebase.ui.FirebaseListAdapter;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -30,14 +34,19 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<Product> adapter;
     ListView listView;
-    ArrayList<Product> bag = new ArrayList<Product>();
+    //ArrayList<Product> bag = new ArrayList<Product>();
     Product lastDeletedProduct;
     int lastDeletedPosition;
-    public void saveCopy()
-    {
-        lastDeletedPosition = listView.getCheckedItemPosition();
-        lastDeletedProduct = bag.get(lastDeletedPosition);
-    }
+    Firebase mRef;
+    Firebase m2Ref;
+
+
+
+//gemme en kopi til snackbar med undo-------------------------------------------
+
+
+
+
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -45,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
-    public ArrayAdapter getMyAdapter() {
-        return adapter;
+    FirebaseListAdapter<Product> fireAdapter;
+
+    public FirebaseListAdapter getMyAdapter() {
+        return fireAdapter;
     }
 
     @Override
@@ -56,10 +67,29 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    //-----------------------
+        mRef = new Firebase("https://mshuskeliste.firebaseio.com/items");
+        m2Ref = new Firebase("https://mshuskeliste.firebaseio.com");
+
+        listView = (ListView) findViewById(R.id.list);
+
+         fireAdapter =
+                new FirebaseListAdapter<Product>(
+                        this,
+                        Product.class,
+                        android.R.layout.simple_list_item_1,
+                        mRef
+                ) {
+                @Override
+                protected void populateView(View view, Product product, int i) {
+                TextView textView = (TextView) view.findViewById(android.R.id.text1);
+                textView.setText(product.toString());
+        }};
+        listView.setAdapter(fireAdapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
         //getting our listiew - you can check the ID in the xml to see that it
         //is indeed specified as "list"
-
+/*
         if (savedInstanceState != null) {
             bag = savedInstanceState.getParcelableArrayList("savedList");
         }
@@ -72,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         //here we set the choice mode - meaning in this case we can
         //only select one item at a time.
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
+*/
 
         //----------------spinner------------------------------------------------------------------
 
@@ -113,7 +143,11 @@ public class MainActivity extends AppCompatActivity {
                 EditText itemTxt = (EditText) findViewById(R.id.itemInput);
                 String ss=howmanyspinner.getSelectedItem().toString();
                 Integer howMany = Integer.parseInt(ss);
-                bag.add(new Product(itemTxt.getText().toString(), howMany));
+                Product p = new Product(itemTxt.getText().toString(), howMany);
+                mRef.push().setValue(p);
+
+
+                //bag.add(new Product(itemTxt.getText().toString(), howMany));
                 itemTxt.setText("");//fjerner tekst
                 howmanyspinner.setSelection(0);//antal sættes til 1
                 getMyAdapter().notifyDataSetChanged();
@@ -132,7 +166,14 @@ public class MainActivity extends AppCompatActivity {
                 //int selected = listView.getCheckedItemPosition();
                 //bag.remove(selected);
                 saveCopy(); //save a copy of the deleted item
-                bag.remove(lastDeletedPosition); //remove item
+                //mRef.push().setValue(lastDeletedProduct);
+                int index = listView.getCheckedItemPosition();
+                getMyAdapter().getRef(index).setValue(null);
+
+
+
+                //fireAdapter().getRef(lastDeletedProduct).setValue(null);
+                //bag.remove(lastDeletedPosition); //remove item
                 getMyAdapter().notifyDataSetChanged(); //notify view
 
                 Snackbar snackbar = Snackbar
@@ -140,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                bag.add(lastDeletedPosition,lastDeletedProduct);
+                                //ny her bag.add(lastDeletedPosition,lastDeletedProduct);
+                                mRef.push().setValue(lastDeletedProduct);
                                 getMyAdapter().notifyDataSetChanged();
                                 Snackbar snackbar = Snackbar.make(parent, lastDeletedProduct+" på listen igen!", Snackbar.LENGTH_SHORT);
                                 snackbar.show();
@@ -156,7 +198,20 @@ public class MainActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+    //gemme en kopi til snacbarens undo
+    public Product getItem(int index)
+    {
+        return (Product) getMyAdapter().getItem(index);
 
+    }
+    public void saveCopy()
+    {
+        lastDeletedPosition = listView.getCheckedItemPosition();
+        //lastDeletedProduct = bag.get(lastDeletedPosition);
+        //lastDeletedProduct= getMyAdapter().getRef(lastDeletedPosition);
+        lastDeletedProduct= getItem(lastDeletedPosition);
+
+    }
 //------------------------------Clearbutton - Dialog----------------------------------------------
 //action via XML android:onClick="showDialog"
 //public void showDialog(View v) {
@@ -210,16 +265,20 @@ public class MainActivity extends AppCompatActivity {
                 MyDialogFragment dialog = new MyDialogFragment() {
                     @Override
                     protected void positiveClick() {
-                        bag.clear();
+                        //m2Ref.push().setValue(null);
+                        m2Ref.removeValue();
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Listen blev slettet", Toast.LENGTH_SHORT);
+                        toast.show();
                         getMyAdapter().notifyDataSetChanged();
                     }
 
                     @Override
                     protected void negativeClick() {
                         //Here we override the method and can now do something
-                        //oast toast = Toast.makeText(getApplicationContext(),
-                        // "negative button clicked", Toast.LENGTH_SHORT);
-                        //toast.show();
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                         "negative button clicked", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 };
 
@@ -256,13 +315,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //......................outState.putStringArrayList("savedList", bag);
-        outState.putParcelableArrayList("savedList", bag);
+        //outState.putParcelableArrayList("savedList", bag);
 
         //outState.putInt("selected");
         //outState.putString("savedpos", );
     }
     @Override
     public void onStart() {
+
+
         super.onStart();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

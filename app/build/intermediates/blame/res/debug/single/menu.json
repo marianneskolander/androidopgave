@@ -1,14 +1,6 @@
 [
     {
-        "merged": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
-        "source": "C:\\MS\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\menu\\menu_main.xml"
-    },
-    {
-        "merged": "D:\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
-        "source": "D:\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\menu\\menu_main.xml"
-    },
-    {
-        "merged": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
-        "source": "D:\\studie\\androidprojects\\ShoppingList-master\\ShoppingList-master\\app\\src\\main\\res\\menu\\menu_main.xml"
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\src\\main\\res\\menu\\menu_main.xml"
     }
 ]
