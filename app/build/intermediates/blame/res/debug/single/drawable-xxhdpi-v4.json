@@ -172,12 +172,12 @@
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_checkbox_unchecked_mtrl.png",
-        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\abc_btn_checkbox_unchecked_mtrl.png"
-    },
-    {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_radio_off_mtrl.png",
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\abc_btn_radio_off_mtrl.png"
+    },
+    {
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_checkbox_unchecked_mtrl.png",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\abc_btn_checkbox_unchecked_mtrl.png"
     },
     {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_checkbox_checked_mtrl.png",

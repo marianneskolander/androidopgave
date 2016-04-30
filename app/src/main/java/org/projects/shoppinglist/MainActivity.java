@@ -29,6 +29,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 new FirebaseListAdapter<Product>(
                         this,
                         Product.class,
-                        android.R.layout.simple_list_item_1,
+                        android.R.layout.simple_list_item_checked,
                         mRef
                 ) {
                 @Override

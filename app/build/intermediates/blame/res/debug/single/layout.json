@@ -12,28 +12,28 @@
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
-        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item_separator.xml"
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\studie\\androidprojects\\androidopgave\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
