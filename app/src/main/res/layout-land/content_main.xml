@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
-                android:hint="Skriv her" />
+                android:hint="@string/hinttext" />
 
 
             <Spinner
@@ -53,7 +53,7 @@
 
             <Button
                 android:id="@+id/addButton"
-                android:text="Tilføj"
+                android:text="@string/addbuttontxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#4caf50"
@@ -61,7 +61,7 @@
 
             <Button
                 android:id="@+id/deleteButton"
-                android:text="Slet"
+                android:text="@string/deletebuttxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ef5350" />

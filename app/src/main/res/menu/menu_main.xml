@@ -3,6 +3,8 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="org.projects.shoppinglist.MainActivity">
 
+
+    <!--android:onClick="setPreferences"-->
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -11,15 +13,14 @@
 
     <item
         android:id="@+id/item_about"
-        android:icon="@android:drawable/ic_menu_info_details"
         app:showAsAction="never"
         android:orderInCategory="2"
-        android:title="About"/>
+        android:title="@string/about"/>
 
     <item
         android:id="@+id/item_clear"
         android:icon="@drawable/ic_clear"
-        app:showAsAction= "always"
+        app:showAsAction= "ifRoom"
         android:orderInCategory="1"
-        android:title="Clear"/>
+        android:title="@string/clear"/>
     </menu>

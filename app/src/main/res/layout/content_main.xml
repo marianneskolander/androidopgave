@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:maxLines="1"
-            android:hint="Skriv her" />
+            android:hint="@string/hinttext" />
 
 
         <Spinner
@@ -37,12 +37,11 @@
 
         <Button
             android:id="@+id/addButton"
-            android:text="Tilføj"
+            android:text="@string/addbuttontxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#4caf50"
-            android:textColor="#ffffff"
-            android:allowUndo="false" />
+            android:textColor="#ffffff" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +49,13 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:measureWithLargestChild="false">
+
+        <Button
+            android:id="@+id/btnSetPrefs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="setPreferences"
+            android:text="@string/setpref" />
 
         <ListView
             android:id="@+id/list"
@@ -64,14 +70,13 @@
 
         <Button
             android:id="@+id/deleteButton"
-            android:text="Slet"
+            android:text="@string/deletebuttxt"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:allowUndo="false"
             android:background="#ef5350"
             android:textColor="#ffffff"
             android:layout_weight="1"
-            android:layout_gravity="right" />
+            android:layout_gravity="end" />
     </LinearLayout>
 
 </LinearLayout>

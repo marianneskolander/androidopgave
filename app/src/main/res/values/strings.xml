@@ -5,11 +5,26 @@
     <string name="textinput">Skriv her</string>
     <string name="add">+</string>
     <string name="deletebutton">x</string>
+    <string name="about">About</string>
+    <string name="clear">Clear</string>
+    <string name="hinttext">Skriv her</string>
+    <string name="addbuttontxt">Tilføj</string>
+    <string name="setpref">Set Preferences</string>
+    <string name="deletebuttxt">Slet</string>
     <string-array name="howmanyarray">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
+    </string-array>
+    <string-array name="gender_values">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
+    <string-array name="gender_type">
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
 </resources>

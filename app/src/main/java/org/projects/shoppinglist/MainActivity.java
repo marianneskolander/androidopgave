@@ -1,5 +1,7 @@
 package org.projects.shoppinglist;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -28,8 +30,6 @@ import com.firebase.ui.FirebaseListAdapter;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<Product> adapter;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 new FirebaseListAdapter<Product>(
                         this,
                         Product.class,
-                        android.R.layout.simple_list_item_1,
+                        android.R.layout.simple_list_item_checked,
                         mRef
                 ) {
                 @Override
@@ -360,5 +360,41 @@ public class MainActivity extends AppCompatActivity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==1) //exited our preference screen
+        {
+            Toast toast =
+                    Toast.makeText(getApplicationContext(), "back from preferences", Toast.LENGTH_LONG);
+            toast.setText("back from our preferences");
+            toast.show();
+            //here you could put code to do something.......
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void setPreferences(View v) {
+        //Here we create a new activity and we instruct the
+        //Android system to start it
+        Intent intent = new Intent(this, SettingsActivity.class);
+        //startActivity(intent); //this we can use if we DONT CARE ABOUT RESULT
+
+        //we can use this, if we need to know when the user exists our preference screens
+        startActivityForResult(intent, 1);
+    }
+
+    public void getPreferences(View v) {
+
+        //We read the shared preferences from the
+        SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        String email = prefs.getString("email", "");
+        String gender = prefs.getString("gender", "");
+        boolean soundEnabled = prefs.getBoolean("sound", false);
+
+        Toast.makeText(
+                this,
+                "Email: " + email + "\nGender: " + gender + "\nSound Enabled: "
+                        + soundEnabled, Toast.LENGTH_SHORT).show();
     }
 }

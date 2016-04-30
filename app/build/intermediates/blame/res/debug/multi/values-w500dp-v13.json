@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\res\\merged\\debug\\values-w500dp-v13\\values-w500dp-v13.xml",
+        "outputFile": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\values-w500dp-v13\\values-w500dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 105
                 },
                 "from": {
-                    "file": "D:\\studie\\androidprojects\\androidopgave\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-w500dp-v13\\values-w500dp-v13.xml",
+                    "file": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\values-w500dp-v13\\values-w500dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
