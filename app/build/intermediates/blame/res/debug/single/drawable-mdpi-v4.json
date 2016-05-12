@@ -200,6 +200,14 @@
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\abc_ic_ab_back_material.png"
     },
     {
+        "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_actionbar_share.png",
+        "source": "D:\\studie\\androidprojects\\kopifragit\\app\\src\\main\\res\\drawable-mdpi\\ic_actionbar_share.png"
+    },
+    {
+        "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_action_name.png",
+        "source": "D:\\studie\\androidprojects\\kopifragit\\app\\src\\main\\res\\drawable-mdpi\\ic_action_name.png"
+    },
+    {
         "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },

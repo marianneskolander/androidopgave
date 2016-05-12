@@ -108,6 +108,10 @@
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_action_name.png",
+        "source": "D:\\studie\\androidprojects\\kopifragit\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_name.png"
+    },
+    {
         "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_radio_off_mtrl.png",
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\abc_btn_radio_off_mtrl.png"
     },
@@ -194,6 +198,10 @@
     {
         "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_actionbar_share.png",
+        "source": "D:\\studie\\androidprojects\\kopifragit\\app\\src\\main\\res\\drawable-xxhdpi\\ic_actionbar_share.png"
     },
     {
         "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",

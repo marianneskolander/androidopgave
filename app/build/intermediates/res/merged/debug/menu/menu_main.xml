@@ -17,10 +17,15 @@
         android:orderInCategory="2"
         android:title="@string/about"/>
 
+    <item android:id="@+id/share"
+        android:title="ShareList"
+        android:icon="@drawable/ic_actionbar_share"
+        app:showAsAction="always"/>
+
     <item
         android:id="@+id/item_clear"
         android:icon="@drawable/ic_clear"
-        app:showAsAction= "ifRoom"
+        app:showAsAction= "always"
         android:orderInCategory="1"
         android:title="@string/clear"/>
     </menu>

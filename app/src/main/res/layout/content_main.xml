@@ -20,6 +20,12 @@
         android:orientation="horizontal"
         android:padding="10dp" >
 
+        <Spinner
+            android:id="@+id/howmanyspinner"
+            android:entries="@array/howmanyarray"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
         <EditText
             android:id="@+id/itemInput"
             android:layout_width="0dp"
@@ -29,19 +35,14 @@
             android:hint="@string/hinttext" />
 
 
-        <Spinner
-            android:id="@+id/howmanyspinner"
-            android:entries="@array/howmanyarray"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
-
         <Button
             android:id="@+id/addButton"
             android:text="@string/addbuttontxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#4caf50"
-            android:textColor="#ffffff" />
+            android:background="#607D8B"
+            android:textColor="#ffffff"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,19 +51,12 @@
         android:padding="10dp"
         android:measureWithLargestChild="false">
 
-        <Button
-            android:id="@+id/btnSetPrefs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="setPreferences"
-            android:text="@string/setpref" />
-
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="#f0f4c3"
-            android:divider="#1565c0"
+            android:divider="#b6b6b6"
+            android:dividerHeight="1dp"
             android:layout_gravity="top"
             android:layout_weight="10">
 
@@ -73,9 +67,9 @@
             android:text="@string/deletebuttxt"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:background="#ef5350"
             android:textColor="#ffffff"
             android:layout_weight="1"
+            android:background="#607D8B"
             android:layout_gravity="end" />
     </LinearLayout>
 

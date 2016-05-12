@@ -2,6 +2,7 @@ package org.projects.shoppinglist;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -11,9 +12,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -31,6 +34,14 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<Product> adapter;
     ListView listView;
@@ -40,13 +51,8 @@ public class MainActivity extends AppCompatActivity {
     Firebase mRef;
     Firebase m2Ref;
 
-
-
-//gemme en kopi til snackbar med undo-------------------------------------------
-
-
-
-
+    private ShareActionProvider actionProvider;
+    private EditText inputText;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -54,24 +60,22 @@ public class MainActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
-    FirebaseListAdapter<Product> fireAdapter;
+    //----------------Firebase Adapter--(layout og actionbar)--------------------------------------
 
+    FirebaseListAdapter<Product> fireAdapter;
     public FirebaseListAdapter getMyAdapter() {
         return fireAdapter;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         mRef = new Firebase("https://mshuskeliste.firebaseio.com/items");
         m2Ref = new Firebase("https://mshuskeliste.firebaseio.com");
 
         listView = (ListView) findViewById(R.id.list);
-
          fireAdapter =
                 new FirebaseListAdapter<Product>(
                         this,
@@ -83,29 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 protected void populateView(View view, Product product, int i) {
                 TextView textView = (TextView) view.findViewById(android.R.id.text1);
                 textView.setText(product.toString());
-        }};
+                }
+                };
         listView.setAdapter(fireAdapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-        //getting our listiew - you can check the ID in the xml to see that it
-        //is indeed specified as "list"
-/*
-        if (savedInstanceState != null) {
-            bag = savedInstanceState.getParcelableArrayList("savedList");
-        }
-        listView = (ListView) findViewById(R.id.list);
-        //here we create a new adapter linking the bag and the
-        adapter = new ArrayAdapter<Product>(this,
-                android.R.layout.simple_list_item_checked, bag);
-        //setting the adapter on the listview
-        listView.setAdapter(adapter);
-        //here we set the choice mode - meaning in this case we can
-        //only select one item at a time.
-        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-*/
-
         //----------------spinner------------------------------------------------------------------
-
 
         final Spinner howmanyspinner= (Spinner) findViewById(R.id.howmanyspinner);
         ArrayAdapter<CharSequence> adp3=ArrayAdapter.createFromResource(this,
@@ -131,11 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //int position = spinner.getSelectedItemPosition();
-        //String item = (String) spinner.getSelectedItem();
-
-
-//--------------------addButton---------------------------------------------------------------------------
+        //--------------------addButton---------------------------------------------------------------------------
         Button addButton = (Button) findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,9 +128,6 @@ public class MainActivity extends AppCompatActivity {
                 Integer howMany = Integer.parseInt(ss);
                 Product p = new Product(itemTxt.getText().toString(), howMany);
                 mRef.push().setValue(p);
-
-
-                //bag.add(new Product(itemTxt.getText().toString(), howMany));
                 itemTxt.setText("");//fjerner tekst
                 howmanyspinner.setSelection(0);//antal sættes til 1
                 getMyAdapter().notifyDataSetChanged();
@@ -155,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//--------------------------------deletebutton--------------------------
+//--------------------------------deletebutton--med snackbar------------------------
 //
 
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
@@ -163,17 +143,9 @@ public class MainActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int selected = listView.getCheckedItemPosition();
-                //bag.remove(selected);
                 saveCopy(); //save a copy of the deleted item
-                //mRef.push().setValue(lastDeletedProduct);
                 int index = listView.getCheckedItemPosition();
                 getMyAdapter().getRef(index).setValue(null);
-
-
-
-                //fireAdapter().getRef(lastDeletedProduct).setValue(null);
-                //bag.remove(lastDeletedPosition); //remove item
                 getMyAdapter().notifyDataSetChanged(); //notify view
 
                 Snackbar snackbar = Snackbar
@@ -197,44 +169,36 @@ public class MainActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        Colorout();
     }
+
     //gemme en kopi til snacbarens undo
     public Product getItem(int index)
     {
         return (Product) getMyAdapter().getItem(index);
-
     }
     public void saveCopy()
     {
         lastDeletedPosition = listView.getCheckedItemPosition();
-        //lastDeletedProduct = bag.get(lastDeletedPosition);
         //lastDeletedProduct= getMyAdapter().getRef(lastDeletedPosition);
         lastDeletedProduct= getItem(lastDeletedPosition);
 
     }
-//------------------------------Clearbutton - Dialog----------------------------------------------
-//action via XML android:onClick="showDialog"
-//public void showDialog(View v) {
-/*public void showDialog(MenuItem item) {
-    //showing our dialog.
-    MyDialogFragment dialog = new MyDialogFragment() {
-        @Override
-        protected void positiveClick() {
-            bag.clear();
-            getMyAdapter().notifyDataSetChanged();
-        }
 
-        @Override
-        protected void negativeClick() {
-            //Here we override the method and can now do something
-            //oast toast = Toast.makeText(getApplicationContext(),
-                   // "negative button clicked", Toast.LENGTH_SHORT);
-            //toast.show();
+    //----------------tekst til share-----------------------------------------------
+    public String convertListToString()
+    {
+        String result = "";
+        for (int i = 0; i<fireAdapter.getCount();i++)
+        {
+            Product p = (Product) fireAdapter.getItem(i);
+            String sp =p.toString();
+            result += p.getQuantity()+" "+p.getName() + "\n";
+             Log.d("her er listen", sp);
         }
-    };
-    dialog.show(getFragmentManager(), "MyFragment");//Here we show the dialog
-}
-*/
+        return result;
+    }
+
 //---------------------------------Menu----------------------------------------------------------
 
     @Override
@@ -245,22 +209,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
+        //----------settings
+            case R.id.action_settings:
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT)
+                        .show();
+                Intent intent = new Intent(this, SettingsActivity.class);
+                //startActivity(intent); //this we can use if we DONT CARE ABOUT RESULT
+                //we can use this, if we need to know when the user exists our preference screens
+                startActivityForResult(intent, 1);
 
-            case android.R.id.home:
-                Toast.makeText(this, "Application icon clicked!",
-                        Toast.LENGTH_SHORT).show();
-                return true; //return true, means we have handled the event
+                return true;
+        //---------About
             case R.id.item_about:
                 Toast.makeText(this, "Opgave Android Studio, \nMarianne Skolander", Toast.LENGTH_SHORT)
                         .show();
                 return true;
 
-            case R.id.item_clear:
 
+            //--------------Share List------------------------------------------------------
+
+
+
+
+            case R.id.share:
+            int id = item.getItemId();
+            //This is the code to handle our manual way of sharing
+            if (id==R.id.share)
+            {
+                Intent intentshare = new Intent(Intent.ACTION_SEND);
+                intentshare.setType("text/plain"); //MIME type
+                int totalItems = fireAdapter.getCount();
+                SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
+                String navn = prefs.getString("name", "");
+                String textToShare =navn+"'s huskeliste med "+ totalItems +" forskellige ting:\n" +convertListToString();
+                intentshare.putExtra(Intent.EXTRA_TEXT, textToShare);//add the text to t
+                intentshare.putExtra(android.content.Intent.EXTRA_SUBJECT, "Huskeliste");//emne
+                startActivity(intentshare);
+            }
+                return true;
+
+
+
+
+        //-------clear list----med Dialogbox--------------------------
+            case R.id.item_clear:
                 //public void showDialog(View v) {
-                //showing our dialog.
 
                 MyDialogFragment dialog = new MyDialogFragment() {
                     @Override
@@ -282,43 +276,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
 
-                //Here we show the dialog
                dialog.show(getFragmentManager(), "MyFragment");
-                //Toast.makeText(this, "Opgave Android Studio, Marianne Skolander", Toast.LENGTH_SHORT)
-                        //.show();
+
                 return true;
-
-            //dialog.show(getFragmentManager(), "MyFragment");
-
         }
 
         return false; //we did not handle the event
     }
-//oprindelig
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
-    }*/
-
-    /*----------------tilføjet-------------------------*/
+    //----------------Bundle outstate--------------------------------------------------
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //......................outState.putStringArrayList("savedList", bag);
-        //outState.putParcelableArrayList("savedList", bag);
 
-        //outState.putInt("selected");
-        //outState.putString("savedpos", );
     }
     @Override
     public void onStart() {
@@ -360,41 +331,91 @@ public class MainActivity extends AppCompatActivity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+
+        //-------------------------SETTINGS-----------------------------------------------
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==1) //exited our preference screen
         {
-            Toast toast =
-                    Toast.makeText(getApplicationContext(), "back from preferences", Toast.LENGTH_LONG);
-            toast.setText("back from our preferences");
-            toast.show();
-            //here you could put code to do something.......
+            Colorout();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    public void Colorout (){
+        SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        String theme = prefs.getString("theme", "");
+        String name = prefs.getString("name", "");
+        Toast.makeText(
+                this,
+                name + "har sat baggrundsfarven til/n: "+  theme, Toast.LENGTH_SHORT).show();
+        LinearLayout ln = (LinearLayout) this.findViewById(R.id.layout);
+        ln.setBackgroundColor(Color.rgb(255, 255, 255));
+        if(theme.equals("white")){
+            ln.setBackgroundColor(Color.rgb(255,255,255));
+        }
+        else if(theme.equals("grey")){
+            ln.setBackgroundColor(Color.rgb(207,216,220));
+        }
+        else if(theme.equals("yellow")){
+            ln.setBackgroundColor(Color.rgb(255,249,196));
+        }
+        else if(theme.equals("lightblue")){
+            ln.setBackgroundColor(Color.rgb(187,222,251));
+        }
+
+    }
     public void setPreferences(View v) {
-        //Here we create a new activity and we instruct the
-        //Android system to start it
+        //Here we create a new activity and we instruct the Android system to start it
         Intent intent = new Intent(this, SettingsActivity.class);
         //startActivity(intent); //this we can use if we DONT CARE ABOUT RESULT
-
         //we can use this, if we need to know when the user exists our preference screens
         startActivityForResult(intent, 1);
     }
 
-    public void getPreferences(View v) {
 
+    public void getPreferences(View v) {
         //We read the shared preferences from the
         SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
         String email = prefs.getString("email", "");
-        String gender = prefs.getString("gender", "");
+        //String gender = prefs.getString("gender", "");
+        String theme = prefs.getString("theme", "");
         boolean soundEnabled = prefs.getBoolean("sound", false);
 
         Toast.makeText(
                 this,
-                "Email: " + email + "\nGender: " + gender + "\nSound Enabled: "
+                "Email: " + email + "\nTheme: " + theme + "\nSound Enabled: "
                         + soundEnabled, Toast.LENGTH_SHORT).show();
     }
+
+
 }
+//------------------Arkiv snippets---------------------------------------------
+        /*case android.R.id.home:
+                Toast.makeText(this, "Application icon clicked!",
+                        Toast.LENGTH_SHORT).show();
+                return true; //return true, means we have handled the event*/
+//------------------------------Clearbutton - Dialog----------------------------------------------
+//action via XML android:onClick="showDialog"
+//public void showDialog(View v) {
+/*public void showDialog(MenuItem item) {
+    //showing our dialog.
+    MyDialogFragment dialog = new MyDialogFragment() {
+        @Override
+        protected void positiveClick() {
+            bag.clear();
+            getMyAdapter().notifyDataSetChanged();
+        }
+
+        @Override
+        protected void negativeClick() {
+            //Here we override the method and can now do something
+            //oast toast = Toast.makeText(getApplicationContext(),
+                   // "negative button clicked", Toast.LENGTH_SHORT);
+            //toast.show();
+        }
+    };
+    dialog.show(getFragmentManager(), "MyFragment");//Here we show the dialog
+}
+*/
