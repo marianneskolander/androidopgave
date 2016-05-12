@@ -214,9 +214,6 @@ public class MainActivity extends AppCompatActivity {
 
             //--------------Share List------------------------------------------------------
 
-
-
-
             case R.id.share:
             int id = item.getItemId();
             //This is the code to handle our manual way of sharing
@@ -233,8 +230,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentshare);
             }
                 return true;
-
-
 
 
         //-------clear list----med Dialogbox--------------------------

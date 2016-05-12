@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\studie\\androidprojects\\Huskelistefinal\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "D:\\studie\\androidprojects\\Huskelistefinal\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
         "merged": "D:\\studie\\androidprojects\\kopifragit\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
         "source": "D:\\studie\\androidprojects\\kopifragit\\app\\src\\main\\res\\menu\\menu_main.xml"
     }

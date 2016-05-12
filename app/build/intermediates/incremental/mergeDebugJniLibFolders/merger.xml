@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\studie\androidprojects\kopifragit\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\studie\androidprojects\kopifragit\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\studie\androidprojects\Huskelistefinal\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\studie\androidprojects\Huskelistefinal\app\src\debug\jniLibs"/></dataSet></merger>
